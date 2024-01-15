@@ -3,7 +3,6 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 dotenv.config()
 
 
@@ -37,7 +36,7 @@ app.post('/', async (req, res) => {
     const response = await result.response;
     const text = response.text();
     res.status(200).send({
-      bot: marked.parse(text)
+      bot: text
     });
 
   } catch (error) {
